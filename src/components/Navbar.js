@@ -1,9 +1,10 @@
 /* This example requires Tailwind CSS v2.0+ */
-import { useState, Fragment } from 'react';
+import { useState, Fragment, useEffect } from 'react';
 
 import { Disclosure, Menu, Transition } from '@headlessui/react';
 import { BellIcon, MenuIcon, XIcon } from '@heroicons/react/outline';
 import { useLocation, Link } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ');
@@ -11,6 +12,7 @@ function classNames(...classes) {
 
 export default function Navbar() {
   const location = useLocation();
+  const auth = useSelector((state) => state.auth.isAuthenticated);
 
   const [navigation, setNavigation] = useState([
     { name: 'Home', href: '/', current: true },
@@ -18,6 +20,9 @@ export default function Navbar() {
     { name: 'Categories', href: '/categories', current: false },
   ]);
 
+  useEffect(() => {
+    console.log('the state of auth is:', auth);
+  }, []);
   return (
     <Disclosure as="nav" className="bg-gray-800">
       {({ open }) => (
@@ -69,14 +74,25 @@ export default function Navbar() {
                 </div>
               </div>
               <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-                <Link
-                  to="/login"
-                  className="bg-indigo-600 p-1 rounded-full text-white px-4 hover:bg-indigo-500 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white"
-                >
-                  <span className="sr-only">View notifications</span>
-                  {/* <BellIcon className="h-6 w-6" aria-hidden="true" /> */}
-                  Login
-                </Link>
+                {auth ? (
+                  <Link
+                    to="/login"
+                    className="bg-indigo-600 p-1 rounded-full text-white px-4 hover:bg-indigo-500 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white"
+                  >
+                    <span className="sr-only">View notifications</span>
+                    {/* <BellIcon className="h-6 w-6" aria-hidden="true" /> */}
+                    Logout
+                  </Link>
+                ) : (
+                  <Link
+                    to="/login"
+                    className="bg-indigo-600 p-1 rounded-full text-white px-4 hover:bg-indigo-500 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white"
+                  >
+                    <span className="sr-only">View notifications</span>
+                    {/* <BellIcon className="h-6 w-6" aria-hidden="true" /> */}
+                    Login
+                  </Link>
+                )}
 
                 {/* Profile dropdown */}
                 {/* <Menu as="div" className="ml-3 relative">

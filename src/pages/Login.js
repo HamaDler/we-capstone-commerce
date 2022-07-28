@@ -1,11 +1,29 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 export default function Login() {
+  const [form, setForm] = useState({});
+
+  function submitHandler(e) {
+    e.preventDefault();
+
+    // Make POST request to the /login API endpoint
+
+    // if successful => JWT token is returned
+
+    // if rejected =>  error telling u what's going on (username doesn't exist)
+  }
+
+  function onChangeHandler(event) {
+    const name = event.target.name;
+    const value = event.target.value;
+    setForm((values) => ({ ...values, [name]: value }));
+  }
+
   return (
     <div className="bg-indigo-600 min-h-screen p-10 flex items-center justify-center">
       <div className="container mx-auto flex items-center justify-center">
         <div className="bg-white p-10 rounded-lg shadow-xl w-96">
-          <form className="grid grid-cols-1">
+          <form className="grid grid-cols-1" onSubmit={submitHandler}>
             <h2 className="text-center mb-5 text-2xl font-bold">Login Page</h2>
 
             <label htmlFor="username"> Username</label>
@@ -14,6 +32,8 @@ export default function Login() {
               type="text"
               name="username"
               id="username"
+              value={form.username || ''}
+              onChange={onChangeHandler}
             />
             <label htmlFor="password"> Password</label>
             <input
@@ -21,9 +41,14 @@ export default function Login() {
               type="text"
               name="password"
               id="password"
+              value={form.password || ''}
+              onChange={onChangeHandler}
             />
 
-            <button className="bg-indigo-600 p-1 rounded-full text-white px-4 hover:bg-indigo-500 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white">
+            <button
+              type="submit"
+              className="bg-indigo-600 p-1 rounded-full text-white px-4 hover:bg-indigo-500 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white"
+            >
               Login
             </button>
 
