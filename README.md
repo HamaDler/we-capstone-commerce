@@ -1,28 +1,13 @@
-# Getting Started with Create React App and Redux
+# WeCommerce
 
-## Pages
+This is a test ecommerce project built for learning purposes.
 
-- Home (header section, categories list section, 1 secion 2 rows : image and paragraph)
-- Categories
-- Products
-- Product
-- About
-- electronics
-- jewelery
-- men's clothing
-- women's clothing
-- login page
-- register page
-- shopping cart page
+## Features
 
-## Components
+- Authentication
+- State Management with RTK
+- Local Storage
+- Shopping Cart
+- Search and Filtering
 
-- Navbar
-- Footer
-
-Dependencies
-
-- Tailwind CSS
-- Redux Toolkit (RTK)
-- Axios
-- React Router
+## API Used [Faker Store Api](https://fakestoreapi.com/docs).
