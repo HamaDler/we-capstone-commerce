@@ -1,6 +1,10 @@
 import React, { useState } from 'react';
-
+import { login } from '../app/slices/authSlice';
+import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 export default function Login() {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
   const [form, setForm] = useState({});
 
   function submitHandler(e) {
@@ -9,7 +13,8 @@ export default function Login() {
     // Make POST request to the /login API endpoint
 
     // if successful => JWT token is returned
-
+    dispatch(login(form.username));
+    navigate('/', { replace: true });
     // if rejected =>  error telling u what's going on (username doesn't exist)
   }
 
@@ -17,6 +22,8 @@ export default function Login() {
     const name = event.target.name;
     const value = event.target.value;
     setForm((values) => ({ ...values, [name]: value }));
+
+    console.log(form);
   }
 
   return (
