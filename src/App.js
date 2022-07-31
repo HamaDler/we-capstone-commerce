@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import './App.css';
+import { login } from './app/slices/authSlice';
+import { useDispatch } from 'react-redux';
 
 import Navbar from './components/Navbar';
 
@@ -14,6 +16,15 @@ import Product from './pages/Product';
 import Categories from './pages/Categories';
 
 function App() {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    const username = localStorage.getItem('username');
+    if (username) {
+      dispatch(login(username));
+    }
+  }, []);
+
   return (
     <div>
       <Routes>

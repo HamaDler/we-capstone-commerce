@@ -11,10 +11,10 @@ export default function CategoriesSection() {
       .get('https://fakestoreapi.com/products/categories')
       .then((response) => {
         setCategories(response.data);
-        console.log(response.data);
+
         setIsLoading(false);
       })
-      .then((err) => {
+      .catch((err) => {
         console.log(err);
       });
   }, []);
@@ -26,7 +26,7 @@ export default function CategoriesSection() {
         className="container mx-auto flex items-center justify-center mt-24"
       >
         <svg
-          class="inline mr-2 w-8 h-8 text-gray-200 animate-spin dark:text-gray-300 fill-purple-600"
+          className="inline mr-2 w-8 h-8 text-gray-200 animate-spin dark:text-gray-300 fill-purple-600"
           viewBox="0 0 100 101"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
@@ -40,7 +40,7 @@ export default function CategoriesSection() {
             fill="currentFill"
           />
         </svg>
-        <span class="sr-only">Loading...</span>
+        <span className="sr-only">Loading...</span>
       </div>
     );
   }
@@ -49,8 +49,8 @@ export default function CategoriesSection() {
     <div className="container mx-auto">
       <p className="text-2xl text-center my-8 lg:my-10">Our Categories</p>
       <div className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-8">
-        {categories.map((category) => {
-          return <CategoryCard title={category} />;
+        {categories.map((category, index) => {
+          return <CategoryCard title={category} key={index} />;
         })}
       </div>
     </div>
