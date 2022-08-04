@@ -28,22 +28,18 @@ function App() {
 
     // make a request to get the cart for user
 
-    getUserCart();
-  }, []);
-
-  function getUserCart(userId) {
-    console.log('getUserCarrt function gets called');
     axios
       .get(`https://fakestoreapi.com/carts/5`)
       .then((response) => {
-        console.log('shopping cart:', response.data);
+        // once the data is back
+        console.log('getUserCart:', response.data);
+        dispatch(updateCart(response.data.products));
         // send the cart information to the store
-        dispatch(updateCart(response.data));
       })
       .catch((err) => {
         console.log(err);
       });
-  }
+  }, []);
 
   return (
     <div>

@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
-  value: [],
+  products: [],
 };
 
 const cartSlice = createSlice({
@@ -9,9 +9,10 @@ const cartSlice = createSlice({
   initialState,
   reducers: {
     updateCart: (state, action) => {
-      state.value = action.payload;
+      console.log('the data that updateCart reducer recieved:', action.payload);
+      state.products = action.payload;
 
-      console.log('update cart function is running', action.payload);
+      console.log('the cart state after being updated', state);
     },
   },
 });

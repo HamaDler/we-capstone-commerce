@@ -6,6 +6,7 @@ import { BellIcon, MenuIcon, XIcon } from '@heroicons/react/outline';
 import { useLocation, NavLink, Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { logout } from '../app/slices/authSlice';
+
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ');
 }
@@ -13,6 +14,7 @@ function classNames(...classes) {
 export default function Navbar() {
   const location = useLocation();
   const auth = useSelector((state) => state.auth);
+  const cart = useSelector((state) => state.cart);
   const dispatch = useDispatch();
 
   const [navigation, setNavigation] = useState([
@@ -74,6 +76,8 @@ export default function Navbar() {
                 </div>
               </div>
               <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
+                {JSON.stringify(cart.products.length)}
+
                 {auth.isAuthenticated ? (
                   <>
                     <NavLink to="/cart" className="text-white mr-4">
