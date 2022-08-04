@@ -17,7 +17,7 @@ export default function ProductCard({ product }) {
       </p>
 
       <div className="flex justify-between mt-8">
-        <p className="text-xl text-green-700">40$</p>
+        <p className="text-xl text-green-700">{product.price} $</p>
 
         <button className=" border border-indigo-600 rounded-xl text-indigo-600 text-xs p-1 ">
           {product.category.toUpperCase()}
