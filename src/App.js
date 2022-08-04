@@ -14,7 +14,9 @@ import Register from './pages/Register';
 import Products from './pages/Products';
 import Product from './pages/Product';
 import Categories from './pages/Categories';
+import axios from 'axios';
 
+import { updateCart } from './app/slices/cartSlice';
 function App() {
   const dispatch = useDispatch();
 
@@ -23,7 +25,25 @@ function App() {
     if (username) {
       dispatch(login(username));
     }
+
+    // make a request to get the cart for user
+
+    getUserCart();
   }, []);
+
+  function getUserCart(userId) {
+    console.log('getUserCarrt function gets called');
+    axios
+      .get(`https://fakestoreapi.com/carts/5`)
+      .then((response) => {
+        console.log('shopping cart:', response.data);
+        // send the cart information to the store
+        dispatch(updateCart(response.data));
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }
 
   return (
     <div>
