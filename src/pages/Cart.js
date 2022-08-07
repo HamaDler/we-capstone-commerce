@@ -35,6 +35,7 @@ export default function Cart() {
     <Layout>
       Cart
       {JSON.stringify(cart)}
+      <button> submit</button>
     </Layout>
   );
 }

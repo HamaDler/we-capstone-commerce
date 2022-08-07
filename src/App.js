@@ -3,7 +3,7 @@ import { Routes, Route } from 'react-router-dom';
 import './App.css';
 import { login } from './app/slices/authSlice';
 import { useDispatch } from 'react-redux';
-
+import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import Navbar from './components/Navbar';
 
 import Home from './pages/Home';
