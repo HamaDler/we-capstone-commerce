@@ -6,12 +6,14 @@ import { BellIcon, MenuIcon, XIcon } from '@heroicons/react/outline';
 import { useLocation, NavLink, Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { logout } from '../app/slices/authSlice';
+import { useTranslation } from 'react-i18next';
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ');
 }
 
 export default function Navbar() {
+  const { i18n } = useTranslation();
   const location = useLocation();
   const auth = useSelector((state) => state.auth);
   const cart = useSelector((state) => state.cart);
@@ -76,6 +78,24 @@ export default function Navbar() {
                 </div>
               </div>
               <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
+                <button
+                  className="text-white mx-1"
+                  onClick={() => i18n.changeLanguage('ku')}
+                >
+                  Kurdish
+                </button>
+                <button
+                  className="text-white mx-1"
+                  onClick={() => i18n.changeLanguage('en')}
+                >
+                  English
+                </button>
+                <button
+                  className="text-white mx-1"
+                  onClick={() => i18n.changeLanguage('ar')}
+                >
+                  Arabic
+                </button>
                 {JSON.stringify(cart.products.length)}
 
                 {auth.isAuthenticated ? (
