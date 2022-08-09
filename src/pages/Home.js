@@ -7,7 +7,7 @@ export default function Home() {
   const cart = useSelector((state) => state.cart);
   return (
     <Layout>
-      {JSON.stringify(cart)}
+      {/* {JSON.stringify(cart)} */}
       <HeroSection />
       <CategoriesSection />
     </Layout>

@@ -23,6 +23,7 @@ export default function Navbar() {
     { name: 'Home', href: '/', current: true },
     { name: 'Products', href: '/products', current: false },
     { name: 'Categories', href: '/categories', current: false },
+    { name: 'Feedback', href: '/feedback', current: false },
   ]);
 
   useEffect(() => {
