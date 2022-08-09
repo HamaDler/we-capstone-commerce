@@ -15,11 +15,11 @@ import Products from './pages/Products';
 import Product from './pages/Product';
 import Categories from './pages/Categories';
 import axios from 'axios';
-
+import { useTranslation } from 'react-i18next';
 import { updateCart } from './app/slices/cartSlice';
 function App() {
   const dispatch = useDispatch();
-
+  const { i18n } = useTranslation();
   useEffect(() => {
     const username = localStorage.getItem('username');
     if (username) {
@@ -39,6 +39,8 @@ function App() {
       .catch((err) => {
         console.log(err);
       });
+
+    i18n.changeLanguage(localStorage.getItem('language'));
   }, []);
 
   return (
