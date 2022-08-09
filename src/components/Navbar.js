@@ -13,7 +13,7 @@ function classNames(...classes) {
 }
 
 export default function Navbar() {
-  const { i18n } = useTranslation();
+  const { t, i18n } = useTranslation('common');
   const location = useLocation();
   const auth = useSelector((state) => state.auth);
   const cart = useSelector((state) => state.cart);
@@ -78,24 +78,10 @@ export default function Navbar() {
                 </div>
               </div>
               <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-                <button
-                  className="text-white mx-1"
-                  onClick={() => i18n.changeLanguage('ku')}
-                >
-                  Kurdish
-                </button>
-                <button
-                  className="text-white mx-1"
-                  onClick={() => i18n.changeLanguage('en')}
-                >
-                  English
-                </button>
-                <button
-                  className="text-white mx-1"
-                  onClick={() => i18n.changeLanguage('ar')}
-                >
-                  Arabic
-                </button>
+                <button onClick={() => i18n.changeLanguage('en')}>en</button>
+                <button onClick={() => i18n.changeLanguage('ku')}>ku</button>
+                <button onClick={() => i18n.changeLanguage('ar')}>ar</button>
+
                 {JSON.stringify(cart.products.length)}
 
                 {auth.isAuthenticated ? (
