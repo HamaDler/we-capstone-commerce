@@ -11,11 +11,21 @@ const options = [
 ];
 
 export default function Categories() {
+  function handleUpload(e) {
+    console.log('the uploaded file object is:', e.target.files);
+
+    if (e.target.files.length > 4) {
+      alert('you cannot upload more than 4 files');
+    }
+  }
+
   return (
     <Layout>
       <ReactModal />
 
-      <Select options={options} />
+      {/* <Select options={options} /> */}
+
+      <input multiple type="file" name="file" onChange={handleUpload} />
     </Layout>
   );
 }
