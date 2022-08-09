@@ -8,8 +8,8 @@ export default function HeroSection() {
     <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 mt-8 md:mt-10 ">
       <div className=" flex flex-col items-center justify-center">
         <h2 className="text-4xl tracking-tight font-extrabold text-gray-900 sm:text-5xl md:text-6xl">
-          {/* {t('home.title')} */}
-          {/* <span className="text-indigo-600"> {t('Shopping ')}</span> */}
+          {t('welcome.title')}
+          <span className="text-indigo-600">{t('welcome.shop')}</span>
         </h2>
         <p className="text-2xl text-gray-500 mt-3">{t('welcome.title')}</p>
         <div className="mt-10">
