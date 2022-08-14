@@ -6,13 +6,13 @@ export default function SignupForm() {
     const errors = {};
 
     if (!values.username) {
-      errors.username = 'Required';
+      errors.username = 'Username is Required';
     } else if (values.username.length > 15) {
       errors.username = 'Must be 15 characters or less';
     }
 
     if (!values.email) {
-      errors.email = 'Required';
+      errors.email = 'Email is required Required';
     } else if (
       !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)
     ) {
@@ -41,18 +41,25 @@ export default function SignupForm() {
         name="username"
         type="text"
         required
+        onBlur={formik.handleBlur}
         onChange={formik.handleChange}
         value={formik.values.username}
       />
-      {formik.errors.username ? <p> you have an error</p> : null}
+      {formik.errors.username ? (
+        <p className="text-red-500"> {formik.errors.username}</p>
+      ) : null}
       <label htmlFor="email">Email Address</label>
       <input
         id="email"
         name="email"
         type="email"
+        onBlur={formik.handleBlur}
         onChange={formik.handleChange}
         value={formik.values.email}
       />
+      {formik.touched.email && formik.errors.email ? (
+        <p className="text-red-500"> {formik.errors.email}</p>
+      ) : null}
 
       <button
         type="submit"
