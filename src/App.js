@@ -15,6 +15,7 @@ import Products from './pages/Products';
 import Product from './pages/Product';
 import Categories from './pages/Categories';
 import Feedback from './pages/Feedback';
+import Form from './pages/Form';
 import axios from 'axios';
 import { useTranslation } from 'react-i18next';
 import { updateCart } from './app/slices/cartSlice';
@@ -55,6 +56,7 @@ function App() {
         <Route path="products" element={<Products />} />
         <Route path="categories" element={<Categories />} />
         <Route path="feedback" element={<Feedback />} />
+        <Route path="form" element={<Form />} />
 
         <Route path="products/:id" element={<Product />} />
       </Routes>
