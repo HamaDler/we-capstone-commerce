@@ -107,7 +107,10 @@ export default function Product() {
 
   return (
     <Layout>
-      <div className="container mx-auto grid grid-cols-2 divide-x-2  border-red-500 bg-white py-10">
+      <button onClick={() => document.documentElement.classList.add('dark')}>
+        switch to dark mode
+      </button>
+      <div className="container mx-auto grid grid-cols-2 divide-x-2  border-red-500 bg-white dark:bg-gray-800 dark:text-gray-100 py-10">
         <div className="px-10">
           <h2 className="text-l font-medium mt-6 mb-2">{product.title}</h2>
           <p className="text-sm text-gray-500 text-justify">
