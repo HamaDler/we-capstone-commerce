@@ -6,6 +6,52 @@ import LoadingSpinner from '../components/LoadingSpinner';
 
 import Rating from 'react-rating';
 
+import {
+  EmailIcon,
+  FacebookIcon,
+  FacebookMessengerIcon,
+  HatenaIcon,
+  InstapaperIcon,
+  LineIcon,
+  LinkedinIcon,
+  LivejournalIcon,
+  MailruIcon,
+  OKIcon,
+  PinterestIcon,
+  PocketIcon,
+  RedditIcon,
+  TelegramIcon,
+  TumblrIcon,
+  TwitterIcon,
+  ViberIcon,
+  VKIcon,
+  WeiboIcon,
+  WhatsappIcon,
+  WorkplaceIcon,
+} from 'react-share';
+
+import {
+  EmailShareButton,
+  FacebookShareButton,
+  HatenaShareButton,
+  InstapaperShareButton,
+  LineShareButton,
+  LinkedinShareButton,
+  LivejournalShareButton,
+  MailruShareButton,
+  OKShareButton,
+  PinterestShareButton,
+  PocketShareButton,
+  RedditShareButton,
+  TelegramShareButton,
+  TumblrShareButton,
+  TwitterShareButton,
+  ViberShareButton,
+  VKShareButton,
+  WhatsappShareButton,
+  WorkplaceShareButton,
+} from 'react-share';
+
 const yellowStar = (
   <svg
     aria-hidden="true"
@@ -61,7 +107,10 @@ export default function Product() {
 
   return (
     <Layout>
-      <div className="container mx-auto grid grid-cols-2 divide-x-2  border-red-500 bg-white py-10">
+      <button onClick={() => document.documentElement.classList.add('dark')}>
+        switch to dark mode
+      </button>
+      <div className="container mx-auto grid grid-cols-2 divide-x-2  border-red-500 bg-white dark:bg-gray-800 dark:text-gray-100 py-10">
         <div className="px-10">
           <h2 className="text-l font-medium mt-6 mb-2">{product.title}</h2>
           <p className="text-sm text-gray-500 text-justify">
@@ -79,13 +128,27 @@ export default function Product() {
             />
             <p className="text-gray-400">({product.rating.count} reviews)</p>
           </div>
-
           <div className="flex justify-between mt-8">
-            <p className="text-3xl text-green-700">40$</p>
+            <p className="text-3xl text-green-700">{product.price}$</p>
 
             <span className=" border border-indigo-600 rounded-xl text-indigo-600 text-lg p-1 ">
               {product.category.toUpperCase()}
             </span>
+          </div>
+          <div>
+            <TwitterShareButton
+              url={window.location.href}
+              title="example title"
+              via="WeCode"
+              hashtags={['wecode', 'javascript', 'sharing', 'content']}
+            >
+              {' '}
+              <TwitterIcon size={80} round={true} />
+            </TwitterShareButton>
+
+            <LinkedinShareButton url={window.location.href}>
+              <LinkedinIcon size={80} round />
+            </LinkedinShareButton>
           </div>
         </div>
         <div className="px-10">

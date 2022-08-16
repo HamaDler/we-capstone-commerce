@@ -49,7 +49,7 @@ function App() {
   return (
     <div>
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<Home />}  />
         <Route path="about" element={<About />} />
         <Route path="cart" element={<Cart />} />
         <Route path="login" element={<Login />} />
@@ -58,7 +58,7 @@ function App() {
         <Route path="categories" element={<Categories />} />
         <Route path="feedback" element={<Feedback />} />
         <Route path="form" element={<Form />} />
-        <Route path="form" element={<Form />} />
+        <Route path="dashboard" element={<Dashboard />} isAllowed={user == "admin"}/>
 
         <Route path="products/:id" element={<Product />} />
       </Routes>
