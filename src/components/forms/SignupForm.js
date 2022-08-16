@@ -1,13 +1,10 @@
 import React from 'react';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
-<<<<<<< HEAD
-export default function SignupForm() {
-=======
 
 export default function SignupForm() {
   // using the useFormik hook
->>>>>>> 1e67061b6fa6b7f34a2fe67d4fcffb0799225ed8
+
   const formik = useFormik({
     initialValues: {
       email: '',
@@ -16,20 +13,13 @@ export default function SignupForm() {
     validationSchema: Yup.object({
       username: Yup.string()
         .max(15, 'Must be 15 characters or less')
-<<<<<<< HEAD
-        .required('Required'),
-      email: Yup.string()
-        .email('تکایە ئیمەیلی درووست داخڵبکە')
-        .required('Required'),
-    }),
-=======
+
         .required('Username is Required'),
       email: Yup.string()
         .email('Invalid email address')
         .required('Email is Required'),
     }),
 
->>>>>>> 1e67061b6fa6b7f34a2fe67d4fcffb0799225ed8
     onSubmit: (values) => {
       // make a post request
 
