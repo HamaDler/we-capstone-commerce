@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import './App.css';
+// import 'leaflet/dist/leaflet.css';
 import { login } from './app/slices/authSlice';
 import { useDispatch } from 'react-redux';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
@@ -56,6 +57,7 @@ function App() {
         <Route path="products" element={<Products />} />
         <Route path="categories" element={<Categories />} />
         <Route path="feedback" element={<Feedback />} />
+        <Route path="form" element={<Form />} />
         <Route path="form" element={<Form />} />
 
         <Route path="products/:id" element={<Product />} />

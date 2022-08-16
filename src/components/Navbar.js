@@ -25,6 +25,7 @@ export default function Navbar() {
     { name: 'Categories', href: '/categories', current: false },
     { name: 'Feedback', href: '/feedback', current: false },
     { name: 'Form', href: '/form', current: false },
+    { name: 'About', href: '/about', current: false },
   ]);
 
   useEffect(() => {
