@@ -1,6 +1,6 @@
 # WeCommerce
 
-This is a test ecommerce project built for learning purposes.
+This is a test ecommerce project built for teaching purposes.
 
 ## Features
 
